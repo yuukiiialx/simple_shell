@@ -12,8 +12,9 @@ int main(int argc, char *argv[], char *env[])
 	int mode, counter = 0, *status, t = 0, non_int_count = 1;
 	char *line, **line_vector = NULL, **lines = NULL;
 	list_path *current;
+	/*mode checking*/
 	status = &t;
-	mode = checkShellMode(argc);
+	mode = check_mode(argc);
 	if (mode != INTERACTIVE)
 		lines = get_commands(mode, argv[1], argv[0]);
 	current = set_all_paths_to_list();
@@ -90,7 +91,9 @@ size_t print_list(const list_path *p)
  */
 void set_list_env(list_path *p)
 {
-
+	/*
+	*Freeeeeeeeeeeeeeeeeeeeee
+	 */
 	int size;
 	int list_size;
 	char **env;
@@ -98,6 +101,7 @@ void set_list_env(list_path *p)
 	size = 0;
 	if (p == NULL)
 		return;
+	/*get env count*/
 	list_size = env_list_len(p);
 	env = malloc(sizeof(char *) * (list_size));
 	if (env == NULL)
@@ -107,6 +111,7 @@ void set_list_env(list_path *p)
 	}
 	while (p)
 	{
+		/*reverce here*/
 		if (p->path != NULL)
 		{
 			env[size++] = p->path;
@@ -157,13 +162,13 @@ void is_not_built_in(char **line_vector, char *env[], int *status,
 	char *new_path;
 
 	if (access(line_vector[0], X_OK) == 0)
-		runCommand(line_vector[0], line_vector, env, status);
+		execute_command(line_vector[0], line_vector, env, status);
 	else
 	{
 		new_path = check_access(line_vector[0], current);
 		if (new_path)
 		{
-			runCommand(new_path, line_vector, env, status);
+			execute_command(new_path, line_vector, env, status);
 			free(new_path);
 		}
 		else

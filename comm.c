@@ -7,17 +7,17 @@ void handle_comments(char *line)
 {
 	int len = _strlen(line);
 	int x = 0;
-	int start = 0;
+	int _strating = 0;
 
 	for (x = 0; x < len; x++)
 	{
 		if (line[x] == ' ')
 		{
-			start = 0;
+			_strating = 0;
 		}
 		else if (line[x] == '#')
 		{
-			if (!start)
+			if (!_strating)
 			{
 				line[x] = '\0';
 				break;
@@ -25,18 +25,18 @@ void handle_comments(char *line)
 		}
 		else
 		{
-			start = 1;
+			_strating = 1;
 		}
 	}
 }
 
 /**
- * change_directory - Change the current working directory.
+ * _cd - Change the current working directory.
  * @line_vector: The array of command arguments.
  * @argv: The array of command line arguments.
  * Return: 0 on success, 1 on failure.
  */
-int change_directory(char **line_vector, char **argv)
+int _cd(char **line_vector, char **argv)
 {
 	char *dir = line_vector[1];
 	char cwd[1024];
@@ -75,7 +75,7 @@ int change_directory(char **line_vector, char **argv)
 
 
 /**
- * free_all_resources - Free dynamically allocated resources.
+ * free_all - Free dynamically allocated resources.
  * @lines: Array of lines.
  * @counter: Line counter.
  * @env: List of environment variables.
@@ -83,7 +83,7 @@ int change_directory(char **line_vector, char **argv)
  * @line: The input line.
  * @line_vector: Array of command arguments.
  */
-void free_all_resources(char **lines, int counter, list_path *env,
+void free_all(char **lines, int counter, list_path *env,
 		list_path *current, char *line, char **line_vector)
 {
 	if (lines)
