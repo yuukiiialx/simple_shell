@@ -101,3 +101,4 @@ char *get_command_from_user(list_path *current);
 int checkShellMode(int argc);
 void free_vector(char **v);
 #endif
+
