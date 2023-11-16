@@ -11,12 +11,10 @@
 #include <fcntl.h>
 #include <linux/limits.h>
 #include <dirent.h>
-/*my macros*/
 #define INTERACTIVE 1
 #define NON_INTERACTIVE_FILE 0
 #define NON_INTERACTIVE_PIPED 2
 #define ERROR -1
-/*Error status macros*/
 #define NOT_FOUND 127
 #define PERMISSION_DENIED 126
 #define EXIT_ERROR 2
@@ -87,7 +85,7 @@ void execute_command_with_waitpid(char *path, char **av, char **env);
 char *num_to_char(int num);
 char *check_access(char *line_av_1, list_path *current);
 void execute_command(char *path, char **av, char **env, int *status);
-void print_env(int *status);
+void print_enviornment(int *status);
 char *get_process_id();
 char *get_status(int n);
 int is_built_in(char *line, char **line_vector, list_path *current,
