@@ -89,7 +89,7 @@ char *check_access(char *line_av_1, list_path *current);
 void execute_command(char *path, char **av, char **env, int *status);
 void print_environment(int *status);
 char *get_process_id();
-char *get_status(int n);
+char *get_status_of_var(int n);
 int is_built_in(char *line, char **line_vector, list_path *current,
 		char *program_name,
 		int counter, int *status, list_path *env, char **lines, char **argv);
