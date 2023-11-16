@@ -105,9 +105,9 @@ void _setenv(char *name, char *value, list_path *env_list)
 {
 	list_path *var;
 	char *full_var;
-	int counter;
+	int count;
 
-	counter = _strlen(name) + _strlen(value) + 2;
+	count = _strlen(name) + _strlen(value) + 2;
 	full_var = malloc(count);
 	if (full_var == NULL)
 	{
@@ -117,7 +117,7 @@ void _setenv(char *name, char *value, list_path *env_list)
 	full_var[_strlen(name)] = '=';
 	full_var[_strlen(name) + 1] = '\0';
 	full_var = _strcat(full_var, value);
-	full_var[counter - 1] = '\0';
+	full_var[count - 1] = '\0';
 	var = get_variable(name, env_list);
 
 	if (var == 0)
@@ -135,4 +135,3 @@ void _setenv(char *name, char *value, list_path *env_list)
 	print_list(env_list);
 
 }
-
