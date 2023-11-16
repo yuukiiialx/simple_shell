@@ -21,7 +21,7 @@ char *get_av_with_flags_helper(char *token, char *line, char **av, int status)
 		return (NULL);
 	}
 	if (_strcmp("$$", token) == 0)
-		cmd = get_process_id();
+		cmd = get_process_id_as_string();
 	else if (_strcmp("$?", token) == 0)
 		cmd = get_status_of_var(status);
 	else if ((token[0] == '$') && (token[1]))
@@ -66,7 +66,7 @@ char **get_av_with_flags(char *line, int status)
 		if (token != NULL)
 		{
 			if (_strcmp("$$", token) == 0)
-				cmd = get_process_id();
+				cmd = get_process_id_as_string();
 			else if (_strcmp("$?", token) == 0)
 				cmd = get_status_of_var(status);
 			else if ((token[0] == '$') && (token[1]))
