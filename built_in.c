@@ -5,11 +5,11 @@
  */
 void print_env(int *status)
 {
-	int index;
+	int i;
 
-	for (index = 0; environ[index] != NULL; index++)
+	for (i = 0; environ[i] != NULL; i++)
 	{
-		write(STDOUT_FILENO, environ[index], _strlen(environ[index]));
+		write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
 		write(STDOUT_FILENO, "\n", 1);
 	}
 	*status = 0;
@@ -104,32 +104,32 @@ int is_built_in(char *line, char **line_vector, list_path *current,
 void _setenv(char *name, char *value, list_path *env_list)
 {
 	list_path *var;
-	char *full_variable;
+	char *full_var;
 	int counter;
 
 	counter = _strlen(name) + _strlen(value) + 2;
-	full_variable = malloc(count);
-	if (full_variable == NULL)
+	full_var = malloc(count);
+	if (full_var == NULL)
 	{
 		perror("setenv ERROR");
 	}
-	full_variable = _strcpy(full_variable, name);
-	full_variable[_strlen(name)] = '=';
-	full_variable[_strlen(name) + 1] = '\0';
-	full_variable = _strcat(full_variable, value);
-	full_variable[counter - 1] = '\0';
+	full_var = _strcpy(full_var, name);
+	full_var[_strlen(name)] = '=';
+	full_var[_strlen(name) + 1] = '\0';
+	full_var = _strcat(full_var, value);
+	full_var[counter - 1] = '\0';
 	var = get_variable(name, env_list);
 
 	if (var == 0)
 	{
 		free(var->path);
-		var->path = full_variable;
-		var->len = _strlen(full_variable);
+		var->path = full_var;
+		var->len = _strlen(full_var);
 	}
 	else
 	{
-		add_node(&env_list, full_variable);
-		var->len = _strlen(full_variable);
+		add_node(&env_list, full_var);
+		var->len = _strlen(full_var);
 	}
 
 	print_list(env_list);
