@@ -42,7 +42,7 @@ int main(int argc, char *argv[], char *env[])
 		}
 		if (is_dir(line_vector[0], argv, counter, line_vector, status, line) == 0)
 			continue;
-		if (is_built_in(line, line_vector, current,
+		if (is_builtin_command(line, line_vector, current,
 			argv[0], counter, status, NULL, lines, argv) != 0)
 			is_not_built_in(line_vector, env, status, counter, current, argv);
 		free_l_v(line, line_vector);
