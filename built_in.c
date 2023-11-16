@@ -15,11 +15,11 @@ void print_environment(int *status)
 	*status = 0;
 }
 /**
- * get_status - Converts an integer status to a string.
+ * get_status_of_var - Converts an integer status to a string.
  * @n: The integer status.
  * Return: The status as a string.
  */
-char *get_status(int n)
+char *get_status_of_var(int n)
 {
 	char *status;
 
