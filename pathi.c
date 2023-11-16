@@ -71,7 +71,7 @@ list_path *set_all_paths_to_list()
 
 	path_var_cpy = _strdup(path_variable);
 	if (path_var_cpy == NULL)
-		return (NULL); /*can't cpy*/
+		return (NULL);
 
 	token = _strtok(path_var_cpy, ":");
 	while (token != NULL)
@@ -80,7 +80,7 @@ list_path *set_all_paths_to_list()
 		token = _strtok(NULL, ":");
 	}
 	free(path_var_cpy);
-	return (paths_list); /*does not have access*/
+	return (paths_list);
 }
 /**
  * set_all_vector_to_list - Set environment variables to a list.
@@ -108,10 +108,10 @@ list_path *set_all_vector_to_list()
 }
 
 /**
- * check_access - .
- * @line_av_1: .
- * @current: .
- * Return: .
+ * check_access - check if a file is accessible in a given list of paths.
+ * @line_av_1: the file to check.
+ * @current: the current position in the list of paths.
+ * Return: the full path to the file if it is accessible, NULL otherwise.
  */
 
 char *check_access(char *line_av_1, list_path *current)
