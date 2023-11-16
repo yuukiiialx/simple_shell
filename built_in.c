@@ -1,9 +1,9 @@
 #include "shell.h"
 /**
- * print_env - Prints the environment variables.
+ * print_enviornment - Prints the environment variables.
  * @status: Pointer to the status variable.
  */
-void print_env(int *status)
+void print_enviornment(int *status)
 {
 	int index;
 
@@ -75,7 +75,7 @@ int is_built_in(char *line, char **line_vector, list_path *current,
 	switch (n)
 	{
 		case 0:
-			print_env(status);
+			print_enviornment(status);
 			break;
 		case 1:
 			is_exit(line, line_vector, current, program_name,
