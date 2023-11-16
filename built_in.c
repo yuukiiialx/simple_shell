@@ -29,10 +29,10 @@ char *get_status_of_var(int n)
 
 
 /**
- * get_process_id - Gets the process ID as a string.
+ * get_process_id_as_string - Gets the process ID as a string.
  * Return: The process ID as a string.
  */
-char *get_process_id()
+char *get_process_id_as_string()
 {
 	char *ppid_s;
 	pid_t pid = getpid();
@@ -42,7 +42,7 @@ char *get_process_id()
 	return (ppid_s);
 }
 /**
- * is_built_in - Checks if a command is a built-in command.
+ * is_builtin_command - Checks if a command is a built-in command.
  * @line: The command line.
  * @line_vector: The command line tokens.
  * @current: Current working directory.
@@ -54,7 +54,7 @@ char *get_process_id()
  * @argv: Command line arguments.
  * Return: 0 if the command is a built-in, -1 if not.
  */
-int is_built_in(char *line, char **line_vector, list_path *current,
+int is_builtin_command(char *line, char **line_vector, list_path *current,
 	char *program_name, int counter, int *status, list_path *env_list,
 	char **lines, char **argv)
 {
@@ -85,10 +85,10 @@ int is_built_in(char *line, char **line_vector, list_path *current,
 			_cd(line_vector, argv);
 			break;
 		case 3:
-			_setenv(line_vector[1], line_vector[2], env_list);
+			set_environment_variable(line_vector[1], line_vector[2], env_list);
 			break;
 		case 4:
-			_setenv(line_vector[1], line_vector[2], env_list);
+			set_environment_variable(line_vector[1], line_vector[2], env_list);
 			break;
 		default:
 			return (-1);
@@ -96,12 +96,12 @@ int is_built_in(char *line, char **line_vector, list_path *current,
 	return (0);
 }
 /**
- * _setenv - Sets an environment variable.
+ * set_environment_variable - Sets an environment variable.
  * @name: The name of the environment variable.
  * @value: The value of the environment variable.
  * @env_list: List of environment variables.
  */
-void _setenv(char *name, char *value, list_path *env_list)
+void set_environment_variable(char *name, char *value, list_path *env_list)
 {
 	list_path *var;
 	char *full_var;
