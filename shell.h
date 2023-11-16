@@ -11,10 +11,12 @@
 #include <fcntl.h>
 #include <linux/limits.h>
 #include <dirent.h>
+/*my macros*/
 #define INTERACTIVE 1
 #define NON_INTERACTIVE_FILE 0
 #define NON_INTERACTIVE_PIPED 2
 #define ERROR -1
+/*Error status macros*/
 #define NOT_FOUND 127
 #define PERMISSION_DENIED 126
 #define EXIT_ERROR 2
