@@ -5,7 +5,7 @@
  * @program_name: The name of the program.
  * @counter: The counter value.
  * @command: The command or message to be printed.
- * @type_of_error: The type of error (e.g., NOT_FOUND, PERMISSION_DENIED, EXIT_ERROR).
+ * @type_of_error: type of error (e.g., NOT_FOUND, PERMISSION_DENIED, EXIT_ERROR)
  * Return: void
  */
 
