@@ -55,7 +55,7 @@ unsigned int char_count(char *str, char c);
 void free_all(char **lines, int counter, list_path *env,
 				list_path *current, char *line, char **line_vector);
 int _varcmp(char *var_name, char *full_var);
-void _setenv(char *name, char *value, list_path *env_list);
+void set_environment_variable(char *name, char *value, list_path *env_list);
 list_path *get_variable(char *name, list_path *head);
 size_t print_list(const list_path *p);
 void set_list_env(list_path *p);
@@ -88,9 +88,9 @@ char *num_to_char(int num);
 char *check_access(char *line_av_1, list_path *current);
 void execute_command(char *path, char **av, char **env, int *status);
 void print_environment(int *status);
-char *get_process_id();
+char *get_process_id_as_string();
 char *get_status_of_var(int n);
-int is_built_in(char *line, char **line_vector, list_path *current,
+int is_builtin_command(char *line, char **line_vector, list_path *current,
 		char *program_name,
 		int counter, int *status, list_path *env, char **lines, char **argv);
 void print_error(char *program_name, int counter,
