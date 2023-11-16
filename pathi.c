@@ -54,7 +54,8 @@ void free_list(list_path *head)
 }
 
 /**
- * set_all_paths_to_list - Set paths from the PATH environment variable to a list.
+ * set_all_paths_to_list - Set paths from the PATH environment variable
+ *	to a list.
  * Return: A list of paths.
  */
 list_path *set_all_paths_to_list()
